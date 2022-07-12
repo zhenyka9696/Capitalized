@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Capitalization</title>
+    <script src="js/chai.min.js"></script>
+    <script src="js/mocha.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/mocha/8.0.1/mocha.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/mocha/8.0.1/mocha.min.css"
+    />
+  </head>
+  <body>
+    <pre>
+    <div class="main_text" style="text-indent: 60px;
+    text-decoration:overline;"> 
+     You are going to be given a word. Your job is to return the middle character of the word. 
+            If the word's length is odd, return the middle character. If the word's length is even, 
+            return the middle 2 characters.
+            
+            #Examples:          
+            Kata.getMiddle("test") should return "es"
+            Kata.getMiddle("testing") should return "t"
+            Kata.getMiddle("middle") should return "dd"
+            Kata.getMiddle("A") should return "A" 
+</div>
+    </pre>
+    <div id="mocha"></div>
+    <script>
+      /*var word = "word";
+
+        console.log(capitalizeWord(word));
+
+        function capitalizeWord(word) {
+          word = word.charAt(0).toUpperCase() + word.slice(1);
+          return word;
+        }
+        mocha.setup("bdd");
+        const assert = chai.assert;
+        chai.config.truncateThreshold = 0;
+        describe("Test of capitalizing", () => {
+          it("Test 1", () => {
+            assert.strictEqual(capitalizeWord("word"), "Word");
+            assert.strictEqual(capitalizeWord("i"), "I");
+            assert.strictEqual(capitalizeWord("glasswear"), "Glasswear");
+          });
+        });
+        mocha.run();*/
+
+      var s = "test";
+      getMiddle(s);
+      function getMiddle(s) {
+        var length = s.length;
+        if (s == null) return "";
+        var length = s.length;
+        return length % 2 == 0
+          ? s.charAt(s.length / 2 - 1) + s.charAt(s.length / 2)
+          : s.charAt(s.length / 2);
+      }
+
+      mocha.setup("bdd");
+      const assert = chai.assert;
+      chai.config.truncateThreshold = 0;
+      describe("Test of middle of the word", () => {
+        it("Test 1", () => {
+          assert.strictEqual(getMiddle("test"), "es");
+          assert.strictEqual(getMiddle("testing"), "t");
+          assert.strictEqual(getMiddle("middle"), "dd");
+          assert.strictEqual(getMiddle("A"), "A");
+        });
+        it("Test 2", () => {
+          assert.strictEqual(getMiddle(""), "");
+          assert.strictEqual(getMiddle("ab"), "ab");
+          assert.strictEqual(getMiddle("middle"), "dd");
+          assert.strictEqual(getMiddle("A"), "A");
+        });
+      });
+      mocha.run();
+    </script>
+  </body>
+</html>
